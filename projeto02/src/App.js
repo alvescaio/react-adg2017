@@ -5,7 +5,7 @@ import './App.css';
 class Link extends React.Component {
     render() {
         return (
-            <a href={this.props.link} target="_blank">{this.props.texto}</a>
+            <a href={this.props.link} target="_blank" className="mdl-button mdl-button--accent">{this.props.texto}</a>
         );
     }
 }

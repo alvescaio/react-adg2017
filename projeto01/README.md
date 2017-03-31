@@ -48,7 +48,7 @@ class App extends React.Component {
                     <img src={logo} className="App-logo" alt="logo" />
                     <h2>Hello React</h2>
                 </div>
-                
+
                 <Link />
             </div>
         );
@@ -77,7 +77,7 @@ class App extends React.Component {
                     <img src={logo} className="App-logo" alt="logo" />
                     <h2>Hello React</h2>
                 </div>
-                
+
                 <Link link="https://www.google.com.br" texto="Google" />
                 <Link link="https://www.github.com/tibuurcio" texto="Github" />
                 <Link link="http://www.ect.ufrn.br/" texto="Site da ECT"/>
@@ -87,4 +87,16 @@ class App extends React.Component {
 }
 ```
 
-Com isso, criamos nosso primeiro componente e tornamos reusável. Na próxima parte, vamos usar o componente Link que acabamos de criar em outro componente.
+Podemos ainda adicionar uma classe de estilo ao nosso elemento:
+
+```javascript
+class Link extends React.Component {
+    render() {
+        return (
+            <a href={this.props.link} target="_blank" className="mdl-button mdl-button--accent">{this.props.texto}</a>
+        );
+    }
+}
+```
+
+Com isso, criamos nosso primeiro componente e podemos utilizá-lo várias vezes. Na próxima parte, vamos usar o componente Link que acabamos de criar em outro componente.
