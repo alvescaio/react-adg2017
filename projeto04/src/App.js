@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import pokemon from 'pokemon';
+
 class Link extends React.Component {
     render() {
         return (
@@ -19,6 +21,17 @@ class PesquisaImagem extends React.Component {
 }
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            nomePokemon: ''
+        }
+    }
+
+    mudarPokemon() {
+        this.setState({nomePokemon: pokemon.random()});
+    }
+
     render() {
         return (
             <div className="App">
@@ -27,8 +40,12 @@ class App extends React.Component {
                     <h2>Hello React</h2>
                 </div>
 
-                <PesquisaImagem pesquisa="React" />
-                <PesquisaImagem pesquisa="Arduino" />
+                <br />
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onClick={() => this.mudarPokemon()}>Mudar Pokemon</button>
+                <br />
+
+                <p>{ this.state.nomePokemon }</p>
             </div>
         );
     }
