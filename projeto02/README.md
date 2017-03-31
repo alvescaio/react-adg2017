@@ -1,11 +1,23 @@
 # Projeto 02
 
-Essa é a estrutura base que vamos utilizar para começar nosso projeto. Iremos trabalhar apenas no arquivo `App.js` que é onde está o código principal da aplicação.
-
-O componente App representa o componente pai da aplicação, a partir dele iremos adicionar novos componentes.
+Com o componente `Link` completo, vamos agora criar outro componente que vai utilizar o componente Link dentro dele. Vamos criar um componente que pesquise algo nas imagens do google a partir de uma propriedade definida.
 
 ```javascript
-class App extends Component {
+class PesquisaImagem extends React.Component {
+    render() {
+        return(
+            <p><Link link={"https://www.google.com.br/images?q=" + this.props.pesquisa} texto={this.props.pesquisa}/></p>
+        );
+    }
+}
+```
+
+Colocamos o nosso `Link` entre tags `<p></p>` para que cada Pesquisa represente uma nova linha na página html.
+
+Utilizaremos o componente Link que havíamos criado anteriormente com um link de pesquisa do google predefinido, mais uma propriedade que passamos ao componente.
+
+```javascript
+class App extends React.Component {
     render() {
         return (
             <div className="App">
@@ -13,8 +25,13 @@ class App extends Component {
                     <img src={logo} className="App-logo" alt="logo" />
                     <h2>Hello React</h2>
                 </div>
+
+                <PesquisaImagem pesquisa="react" />
+                <PesquisaImagem pesquisa="Arduino" />
             </div>
         );
     }
 }
 ```
+
+Na próxima parte do projeto, veremos como adicionar estado aos nossos componentes.

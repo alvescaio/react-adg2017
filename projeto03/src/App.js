@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -6,6 +6,14 @@ class Link extends React.Component {
     render() {
         return (
             <a href={this.props.link} target="_blank">{this.props.texto}</a>
+        );
+    }
+}
+
+class PesquisaImagem extends React.Component {
+    render() {
+        return(
+            <p><Link link={"https://www.google.com.br/images?q=" + this.props.pesquisa} texto={this.props.pesquisa}/></p>
         );
     }
 }
@@ -19,10 +27,9 @@ class App extends React.Component {
                     <h2>Hello React</h2>
                 </div>
 
-                <Link link="https://www.google.com.br" texto="Google" />
-                <Link link="https://www.github.com/tibuurcio" texto="Github" />
-                <Link link="http://www.ect.ufrn.br/" texto="Site da ECT"/>
-            </div>
+                <PesquisaImagem pesquisa="React" />
+                <PesquisaImagem pesquisa="Arduino" />
+            </div>
         );
     }
 }
