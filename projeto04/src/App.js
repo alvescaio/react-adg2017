@@ -7,7 +7,7 @@ import pokemon from 'pokemon';
 class Link extends React.Component {
     render() {
         return (
-            <a href={this.props.link} target="_blank">{this.props.texto}</a>
+            <a href={this.props.link} target="_blank" className="mdl-button mdl-button--accent">{this.props.texto}</a>
         );
     }
 }
@@ -45,7 +45,7 @@ class App extends React.Component {
                     onClick={() => this.mudarPokemon()}>Mudar Pokemon</button>
                 <br />
 
-                <p>{ this.state.nomePokemon }</p>
+                <PesquisaImagem pesquisa={this.state.nomePokemon}/>
             </div>
         );
     }

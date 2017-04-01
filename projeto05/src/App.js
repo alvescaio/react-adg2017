@@ -1,8 +1,25 @@
-# Projeto 04
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-E se quisessemos que ao invés de o nome do pokemon mudar toda vez, pudessemos adicionar vários pokemons novos ao mesmo tempo? Para isso, ao invés de gerar um novo pokemon no clique do botão. Podemos salvar uma lista de componentes `ProcuraImagem` e adicionar novos elementos a essa lista.
+import pokemon from 'pokemon';
 
-```javascript
+class Link extends React.Component {
+    render() {
+        return (
+            <a href={this.props.link} target="_blank" className="mdl-button mdl-button--accent">{this.props.texto}</a>
+        );
+    }
+}
+
+class PesquisaImagem extends React.Component {
+    render() {
+        return(
+            <p><Link link={"https://www.google.com.br/images?q=" + this.props.pesquisa} texto={this.props.pesquisa}/></p>
+        );
+    }
+}
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -32,12 +49,10 @@ class App extends React.Component {
                     onClick={() => this.mudarPokemon()}>Novo Pokemon</button>
                 <br />
 
-                
                 { this.state.listaPokemons }
             </div>
         );
     }
 }
-```
 
-Assim, temos agora vários pokemons e podemos pesquisar pela imagem de vários ao mesmo tempo.
+export default App;

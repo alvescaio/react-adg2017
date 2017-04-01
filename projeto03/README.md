@@ -42,7 +42,7 @@ class App extends Component {
 }
 ```
 
-Entretanto, percebemos que isso não nos mostra nada, pois o estado inicial de `nomePokemon` é vazio. Vamos agora adicionar um botão ao nosso app que ao ser clicado, mude o estado do nosso componente.
+Entretanto, percebemos que isso não nos mostra nada, pois o estado inicial de `nomePokemon` é vazio. Vamos agora adicionar um botão ao nosso app que ao ser clicado mude o estado do componente.
 
 ```javascript
 class App extends React.Component {
@@ -108,4 +108,39 @@ class App extends React.Component {
 }
 ```
 
-Com isso, temos agora um elemento que guarda algum estado dentro dele. No nosso caso, o nome de um pokemon :)
+Fica muito fácil agora fazer com que possamos pesquisar a imagem de cada pokemon através do nome, devido ao modo como criamos cada componente separadamente.
+
+Vamos substituir o elemento `<p></p>` pelo nosso componente `PesquisaImagem` que definimos anteriormente.
+
+```javascript
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            nomePokemon: ''
+        }
+    }
+
+    mudarPokemon() {
+        this.setState({nomePokemon: pokemon.random()});
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <h2>Hello React</h2>
+                </div>
+
+                <br />
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onClick={() => this.mudarPokemon()}>Mudar Pokemon</button>
+                <br />
+
+                <PesquisaImagem pesquisa={ this.state.nomePokemon }>
+            </div>
+        );
+    }
+}
+```
